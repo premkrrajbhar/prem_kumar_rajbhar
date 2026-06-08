@@ -1,0 +1,317 @@
+.heroSection {
+  padding: 10px 24px;
+}
+
+.heroSection h1 {
+  font-size: 3rem;
+  color: #0f172b;
+  font-weight: 700;
+}
+
+.introPara {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #45556c;
+  margin-bottom: 1.7rem;
+}
+
+.heroSecCtaBox {
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.techSkillsSection,
+.proExpSection,
+.acaBacSection,
+.certLearnSection {
+  margin-bottom: 60px;
+}
+
+.heading3 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.techSkillsSection .row {
+  justify-content: center;
+}
+
+.techSkillsSection .card,
+.certLearnSection .card {
+  padding: 10px 6px 0px;
+  transition: all 0.3s ease-in-out;
+  border-color: #e2e8f0;
+  border-radius: 14px;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  min-height: 11rem;
+  margin-bottom: 20px;
+}
+
+.techSkillsSection .card:hover,
+.certLearnSection .card:hover {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 14px 20px -20px;
+}
+
+.cardHeaderBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.svgBox {
+  display: inline-block;
+  padding: 3px 6px 5px 7px;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+.svgBox svg {
+  color: #45556c;
+  transition: all 0.3s ease-in-out;
+  height: 20px;
+  width: 20px;
+}
+
+.techSkillsSection .card h4,
+.certLearnSection .card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172b;
+  margin-bottom: 0;
+}
+
+.techStackBox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 5px;
+  margin-top: 40px;
+}
+
+.techStackBox span,
+.techStackBox a {
+  font-size: 0.75rem;
+  color: #314158;
+  background: #f1f5f9;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
+  padding: 1px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.techStackBox span:hover,
+.techStackBox a:hover {
+  background: #e2e8f0;
+}
+
+.proExpSection .row {
+  padding-top: 10px;
+}
+
+.proExpSection .card,
+.acaBacSection .card {
+  padding: 30px 8px;
+  border-color: #f1f5f9;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  border-radius: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+.proExpSection .card:hover,
+.acaBacSection .card:hover {
+  box-shadow:
+    rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
+    rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px,
+    rgba(42, 51, 70, 0.04) 0px 2px 2px -1px,
+    rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+    rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
+    rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
+    rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+}
+
+.cardLine {
+  position: relative;
+}
+
+.cardLine::before {
+  content: "";
+  height: 100%;
+  width: 1px;
+  background: #dde3ea;
+  position: absolute;
+  left: -40px;
+}
+
+.breifCaseIcon {
+  border: 1px solid #f1f5f9;
+  display: inline-block;
+  padding: 10px 12px 10px 12px;
+  border-radius: 100%;
+  background: #f1f5f9;
+  outline: 4px solid white;
+  box-shadow:
+    rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  position: absolute;
+  left: -65px;
+  top: 2px;
+}
+
+.breifCaseIcon svg {
+  color: #45556c;
+}
+
+.dsgTitle {
+  font-size: 1.25rem;
+  color: #0f172b;
+  font-weight: 600;
+}
+
+.companyDetail {
+  font-size: 18px;
+  color: #314158 !important;
+  font-weight: 500;
+}
+
+.workTimeBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 12px 0;
+}
+
+.workTimeBox span {
+  font-size: 14px;
+  color: #45556c;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.workTimeBox span svg {
+  height: 15px;
+  width: 15px;
+  color: #848484;
+}
+
+.keyAch {
+  color: #1d293d;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.jobRes {
+  padding-left: 20px;
+}
+
+.jobRes li {
+  color: #4a4747ed;
+}
+
+.jobRes li::marker {
+  color: #4a474778;
+}
+
+.jobRes li p {
+  margin-bottom: 3px;
+}
+
+.academicDuration {
+  flex-direction: column;
+  gap: 8px;
+  align-items: start;
+}
+
+.academicPara {
+  color: #4a4747ed;
+  margin-bottom: 0;
+}
+
+.certLearnSection .row {
+  justify-content: center;
+}
+
+.certificationBox {
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .heroSection h1 {
+    font-size: 33px;
+  }
+
+  .introPara {
+    font-size: 16px;
+  }
+
+  .heading3 {
+    font-size: 28px;
+  }
+
+  .techSkillsSection .card h4,
+  .certLearnSection .card h4 {
+    font-size: 16px;
+  }
+
+  .techSkillsSection .col-8,
+  .certLearnSection .col-8 {
+    width: 90% !important;
+  }
+
+  .techStackBox {
+    margin-top: 30px;
+  }
+
+  .breifCaseIcon {
+    padding: 4px 7px 4px 7px;
+    left: -34px;
+  }
+
+  .breifCaseIcon svg {
+    height: 16px;
+    width: 16px;
+  }
+
+  .cardLine::before {
+    left: -19px;
+  }
+
+  .proExpSection .row,
+  .acaBacSection .row {
+    justify-content: end !important;
+  }
+
+  .cardLine {
+    width: 90%;
+  }
+
+  .dsgTitle {
+    font-size: 18px;
+  }
+
+  .companyDetail {
+    font-size: 16px;
+  }
+
+  .workTimeBox {
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+  }
+
+  .jobRes li p,
+  .academicPara {
+    font-size: 14px;
+  }
+}

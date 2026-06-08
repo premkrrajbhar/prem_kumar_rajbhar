@@ -1,0 +1,140 @@
+.projectSec .row {
+  margin-top: 2rem;
+}
+
+.projectSec h1 {
+  font-size: 18px;
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+.projectsecTxt {
+  font-size: 14px;
+  color: #6a7282;
+}
+
+.projectSec .row {
+  margin-bottom: 45px;
+}
+
+.projectSec h2,
+.connectionSection h2 {
+  font-size: 3rem;
+  color: #0f172b;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.projectSec .card {
+  border-color: #e2e8f0;
+  border-radius: 14px;
+  border: none;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  transition: all 0.2s ease-in-out;
+}
+
+.projectTxt {
+  font-size: 1.25rem;
+  color: #45556c;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.projectImgBox {
+  overflow: hidden;
+  text-align: center;
+  height: 293px;
+  position: relative;
+}
+
+.projectImgBox img {
+  width: 95%;
+  transition: all 0.2s ease;
+}
+
+.projectTit {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.projectDesc {
+  font-size: 14px;
+  color: #737373;
+}
+
+.techStackBox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.techStackBox span {
+  font-size: 0.75rem;
+  color: #0a0a0a;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
+  padding: 1px 10px;
+  border-radius: 5px;
+}
+
+.projectBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.projectBtnBox a {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 7px 0;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.projectBtnBox a svg {
+  height: 16px;
+  width: 16px;
+}
+
+.projectBtnBox a:last-child {
+  background: #171717;
+  color: #ffffff;
+}
+
+.projectBtnBox a:first-child:hover {
+  background: #f5f5f5;
+}
+
+.projectBtnBox a:last-child:hover {
+  background: #171717e6;
+}
+
+.projectSec .card:hover {
+  transform: translateY(-3px);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 14px 20px -13px;
+  transform: scale(1.02);
+}
+
+footer {
+  margin-top: 5rem;
+}
+
+@media (max-width: 768px) {
+  .projectSec .card {
+    margin-bottom: 2rem;
+  }
+}

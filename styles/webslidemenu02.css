@@ -1,0 +1,653 @@
+/*
+ * Plugin: Web Slide Navigation System
+ * Demo Link: https://webslidemenu.com/
+ * Author: WebSlideMenu
+ * License: http://codecanyon.net/licenses/standard
+*/
+/* ======== Find Below Table of Content Points to Go Relevant Section  =========
+ Menu Change Brake Point
+ Base CSS
+ Main Menu CSS
+ Slide Down Links CSS
+ Mega Menus CSS
+ Header CSS
+ ->  Search Bar
+ ->  Toggle Menu icon (X ICON)
+ Overlay/Drawer CSS
+ Sub Menu Expander Arrows
+ Extra CSS
+===============================================================================*/
+/* ================== Desktop Base CSS  ================== */
+.wsmenu02 html,
+.wsmenu02 body,
+.wsmenu02 iframe,
+.wsmenu02 h1,
+.wsmenu02 h2,
+.wsmenu02 h3,
+.wsmenu02 h4,
+.wsmenu02 h5,
+.wsmenu02 h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: Helvetica, sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-smoothing: antialiased;
+  font-smooth: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-smoothing: subpixel-antialiased;
+  font-smooth: subpixel-antialiased;
+}
+
+.wsmenu02 .cl {
+  clear: both;
+}
+
+.wsmenu02 img,
+object,
+embed,
+video {
+  border: 0 none;
+  max-width: 100%;
+}
+
+.wsmenu02 a:focus {
+  outline: none;
+}
+
+.wsmenu02:before,
+.wsmenu02:after {
+  content: "";
+  display: table;
+}
+
+.wsmenu02:after {
+  clear: both;
+}
+
+/* ================== Desktop Main Menu CSS ================== */
+/* ==================  Base CSS ================== */
+body.wsactive02 {
+  overflow: hidden;
+}
+
+/* ==================  Main Menu CSS ================== */
+.wsmenu02-title {
+  display: block;
+  background: #f0f0f0 none repeat scroll 0 0;
+  color: #333;
+  text-align: left;
+  font-size: 16px;
+  margin: 0 0 0px;
+  padding: 15px 20px 15px 20px;
+}
+
+.wsmenu02text {
+  width: 100%;
+  display: block;
+  padding: 5px 15px 95px 15px;
+  text-align: justify;
+  line-height: 24px;
+  color: #333;
+  font-size: 14px;
+}
+
+.wsmenu02 {
+  width: 100%;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  right: 0;
+  overflow-y: scroll;
+  padding: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  position: static;
+  margin: 0px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.wsmenu02>.wsmenu02-list {
+  padding: 0;
+  height: auto;
+  min-height: 100%;
+  width: 240px;
+  background: #fff;
+  right: -240px;
+  margin-bottom: 0;
+  display: block;
+  text-align: center;
+  float: right;
+  position: fixed;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.wsmenu02>.wsmenu02-list>li {
+  width: 100%;
+  display: block;
+  float: none;
+  border-right: none;
+  position: relative;
+  white-space: inherit;
+}
+
+.wsmenu02>.wsmenu02-list>li>a {
+  padding: 12px 32px 12px 17px;
+  font-size: 14px;
+  text-align: left;
+  border-right: solid 0px;
+  color: #666666;
+  line-height: 25px;
+  border-bottom: 1px solid;
+  border-bottom-color: rgba(0, 0, 0, 0.13);
+  display: block;
+}
+
+.wsmenu02>.wsmenu02-list>li>a>i {
+  font-size: 16px;
+  color: #bfbfbf;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+.wsmenu02>.wsmenu02-list>li>a .wsarrow:after {
+  display: none;
+}
+
+.wsmenu02>.wsmenu02-list>li:hover>a {
+  background-color: rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+}
+
+.wsmenu02>.wsmenu02-list>li>a>.hometext {
+  display: inline-block;
+}
+
+/* ================== Desktop Drop Down Menu CSS ================== */
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu {
+  position: static;
+  margin: 0px;
+  padding: 0px;
+  min-width: 190px;
+  background-color: #fff;
+  border: solid 1px #eeeeee;
+  display: none;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>a {
+  background-image: none;
+  color: #666666;
+  border-right: 0 none;
+  text-align: left;
+  display: block;
+  line-height: 22px;
+  padding: 8px 12px;
+  text-transform: none;
+  font-size: 13px;
+  letter-spacing: normal;
+  border-right: 0px solid;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>a:hover {
+  text-decoration: none;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>a>i {
+  margin-right: 9px;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu {
+  min-width: 220px;
+  position: static;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #fff;
+  border: solid 1px #eeeeee;
+  display: none;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li>a {
+  background-image: none;
+  color: #666666;
+  border-right: 0 none;
+  text-align: left;
+  display: block;
+  line-height: 22px;
+  padding: 8px 12px;
+  text-transform: none;
+  font-size: 13px;
+  letter-spacing: normal;
+  border-right: 0px solid;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li>a:hover {
+  text-decoration: none;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li>a>i {
+  margin-right: 9px;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li>ul.sub-menu {
+  min-width: 220px;
+  position: static;
+  margin: 0px;
+  list-style: none;
+  padding: 0px;
+  background-color: #fff;
+  border: solid 1px #eeeeee;
+  display: none;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li>ul.sub-menu>li {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li>ul.sub-menu>li>a {
+  background-image: none;
+  color: #666666;
+  border-right: 0 none;
+  text-align: left;
+  display: block;
+  line-height: 22px;
+  padding: 8px 12px;
+  text-transform: none;
+  font-size: 13px;
+  letter-spacing: normal;
+  border-right: 0px solid;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li>ul.sub-menu>li>a:hover {
+  text-decoration: none;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li>ul.sub-menu>li>ul.sub-menu>li>a>i {
+  margin-right: 9px;
+}
+
+/* ================== Desktop Mega Menus CSS  ================== */
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu {
+  width: 100%;
+  color: #000;
+  margin: 0px;
+  text-align: left;
+  padding: 14px 5px;
+  font-size: 15px;
+  border: solid 1px #eeeeee;
+  background-color: #fff;
+  display: none;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .title {
+  border-bottom: 1px solid #CCC;
+  font-size: 14px;
+  padding: 9px 5px 9px 0px;
+  font-size: 17px;
+  color: #424242;
+  margin: 0px 0px 7px 0px;
+  text-align: left;
+  height: 39px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .link-list li {
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .link-list li a {
+  line-height: 18px;
+  border-right: none;
+  text-align: left;
+  padding: 6px 0px;
+  background: #fff;
+  background-image: none;
+  color: #666666;
+  border-right: 0 none;
+  display: block;
+  background-color: #fff;
+  color: #424242;
+  font-size: 14px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu li i {
+  margin-right: 5px;
+  text-align: center;
+  width: 18px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu li a:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .link-list li i {
+  font-size: 11px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu li i {
+  margin-right: 5px;
+  text-align: center;
+  width: 18px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .mrgtop {
+  margin-top: 15px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .show-grid div {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #dbdbdb;
+  border: 1px solid #e7e7e7;
+  color: #6a6a6a;
+  margin: 2px 0px;
+  font-size: 13px;
+}
+
+/*= Desktop Half Menu CSS =*/
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu.halfmenu {
+  width: 100%;
+  right: auto;
+  left: auto;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu.halfdiv {
+  width: 100%;
+  right: 0px;
+  left: auto;
+}
+
+/*= Desktop HTML Form Menu CSS =*/
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .menu_form {
+  width: 100%;
+  display: block;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .menu_form input[type="text"] {
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  color: #000;
+  font-size: 13px;
+  padding: 8px 5px;
+  margin-bottom: 8px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .menu_form textarea {
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  color: #000;
+  font-size: 13px;
+  padding: 8px 5px;
+  margin-bottom: 8px;
+  min-height: 122px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .menu_form input[type="submit"] {
+  width: 32%;
+  display: block;
+  height: 32px;
+  float: right;
+  border: none;
+  margin-right: 15px;
+  cursor: pointer;
+  background-color: #e1e1e1;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .menu_form input[type="button"] {
+  width: 32%;
+  display: block;
+  height: 32px;
+  float: right;
+  border: none;
+  cursor: pointer;
+  background-color: #e1e1e1;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .carousel-inner .item img {
+  width: 100%;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .carousel-caption {
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 13px;
+  height: 31px;
+  left: 0;
+  padding: 7px 0;
+  right: 0;
+  width: 100%;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .typography-text {
+  padding: 0px 0px;
+  font-size: 14px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .typography-text ul {
+  padding: 0px 0px;
+  margin: 0px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .typography-text p {
+  text-align: justify;
+  line-height: 24px;
+  color: #656565;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .typography-text ul li {
+  display: block;
+  padding: 2px 0px;
+  line-height: 22px;
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmegamenu .typography-text ul li a {
+  color: #656565;
+}
+
+/* ================== Header CSS ================== */
+.wsactive02 .wsmobileheader {
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.wsmobileheader .smllogo {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+/* Mobile Toggle Menu icon (X ICON) */
+.wsanimated-arrow02 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 102;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  transform: rotate(90deg);
+}
+
+.wsanimated-arrow02 {
+  cursor: pointer;
+  padding: 10px 10px;
+  margin: 12px 0px;
+  position: absolute;
+  right: 0;
+  width: 53px;
+  height: 25px;
+  display: block;
+  text-align: center;
+}
+
+.wsanimated-arrow02 span {
+  margin-right: 22px;
+}
+
+.wsanimated-arrow02 span,
+.wsanimated-arrow02 span:before,
+.wsanimated-arrow02 span:after {
+  cursor: pointer;
+  height: 5px;
+  width: 5px;
+  background: #6a717f;
+  position: absolute;
+  display: block;
+  content: '';
+  border-radius: 55px;
+  right: 0px;
+}
+
+.wsanimated-arrow02 span:before {
+  top: -9px;
+  width: 5px;
+}
+
+.wsanimated-arrow02 span:after {
+  bottom: -9px;
+  width: 5px;
+  content: '';
+}
+
+.wsanimated-arrow02 span,
+.wsanimated-arrow02 span:before,
+.wsanimated-arrow02 span:after {
+  transition: all 500ms ease-in-out;
+}
+
+/* ================== Mobile Overlay/Drawer CSS ================== */
+.wsactive02 .overlapblackbg {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 1.5s ease-in-out;
+  -moz-transition: opacity 1.5s ease-in-out;
+  -ms-transition: opacity 1.5s ease-in-out;
+  -o-transition: opacity 1.5s ease-in-out;
+  right: auto;
+  left: 0;
+}
+
+.wsactive02 .wsmenucontainer {
+  margin-right: 0px;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  float: right;
+}
+
+.wsactive02 .wsmenu02 {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1000;
+  top: 0;
+}
+
+.wsactive02 .wsmenu02>.wsmenu02-list {
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  right: 0;
+  overflow-y: scroll;
+}
+
+/* ================== Mobile Sub Menu Expander Arrows  ================== */
+.wsmenu02>.wsmenu02-list>li>.wsmenu02-click {
+  height: 49px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+}
+
+.wsmenu02>.wsmenu02-list>li .wsmenu02-click.ws-activearrow>i {
+  transform: rotate(180deg);
+}
+
+.wsmenu02>.wsmenu02-list>li>.wsmenu02-click>i {
+  display: block;
+  height: 23px;
+  width: 25px;
+  margin-top: 14px;
+  margin-right: 10px;
+  background-size: 25px;
+  font-size: 21px;
+  color: rgba(0, 0, 0, 0.45);
+  float: right;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li .wsmenu02-click02 {
+  height: 41px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li .wsmenu02-click02>i {
+  display: block;
+  height: 23px;
+  width: 25px;
+  margin: 8px 6px 8px 6px;
+  background-size: 25px;
+  font-size: 21px;
+  color: rgba(0, 0, 0, 0.45);
+  float: right;
+}
+
+.wsmenu02>.wsmenu02-list>li>ul.sub-menu>li .wsmenu02-click02>i.wsmenu02-rotate {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}

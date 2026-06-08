@@ -1,0 +1,80 @@
+.smllogo > a {
+  width: 133px;
+  background-image: url(../../images/logo-light.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 29px;
+  display: block;
+}
+
+.wsmenu > .wsmenu-list > li.leftlogo:hover a {
+  background-color: transparent;
+}
+
+.wsmenu > .wsmenu-list {
+  background-color: #fff;
+}
+
+.wsmobileheader {
+  background-color: #fff;
+  padding: 10px 0;
+}
+
+.wsmenu > .wsmenu-list > li > a {
+  color: #333;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.wsmenu > .wsmenu-list > li > a .wsarrow:after {
+  border-top-color: #b3b3b3;
+}
+
+.wsmenu > .wsmenu-list > li > a:hover .wsarrow:after {
+  border-top-color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li > a.active .wsarrow:after {
+  border-top-color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li:hover > a .wsarrow:after {
+  border-top-color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li > a > i {
+  color: #55606c;
+}
+
+.wsmenu > .wsmenu-list > li > a.active i {
+  color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li:hover > a > i {
+  color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li > a:hover i {
+  color: #fff;
+}
+
+/* color */
+.wsmenu > .wsmenu-list > li > a.active {
+  background-color: #3d3d3d;
+  color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li:hover > a {
+  background-color: #3d3d3d;
+  color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li:hover > a {
+  background-color: #484747;
+  color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li:hover > a {
+  background-color: #484747;
+  color: #fff;
+}

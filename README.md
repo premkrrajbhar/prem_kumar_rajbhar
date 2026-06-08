@@ -6,7 +6,7 @@ Welcome to my personal portfolio! This website is designed to showcase my skills
 
 ## 🔗 Live Demo
 
-Check out my Portfolio live here: **[Portfolio](https://premkrrajbhar.github.io/Prem-Kumar-Rajbhar/)**
+Check out my Portfolio live here: **[Portfolio](https://premkrrajbhar.github.io/prem_kumar_rajbhar/)**
 
 
 ## 🚀 Features

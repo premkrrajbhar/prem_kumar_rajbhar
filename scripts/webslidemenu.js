@@ -75,9 +75,9 @@ function _0x1d03(_0x48cf68, _0x554970) {
       var _0x16b8ae =
         parseInt(_0x228491(0x1d6)) / 0x1 +
         (-parseInt(_0x228491(0x1f2)) / 0x2) *
-        (-parseInt(_0x228491(0x1fb)) / 0x3) +
+          (-parseInt(_0x228491(0x1fb)) / 0x3) +
         (-parseInt(_0x228491(0x1f5)) / 0x4) *
-        (parseInt(_0x228491(0x1d4)) / 0x5) +
+          (parseInt(_0x228491(0x1d4)) / 0x5) +
         parseInt(_0x228491(0x1f3)) / 0x6 +
         -parseInt(_0x228491(0x1f1)) / 0x7 +
         parseInt(_0x228491(0x1f0)) / 0x8 +
@@ -93,7 +93,7 @@ function _0x1d03(_0x48cf68, _0x554970) {
     (function () {
       "use strict";
       var _0x273ed6 = _0x1d03;
-      (document[_0x273ed6(0x1fa)](_0x273ed6(0x1e2), function () { }, ![]),
+      (document[_0x273ed6(0x1fa)](_0x273ed6(0x1e2), function () {}, ![]),
         jQuery(function () {
           var _0x5b4d34 = _0x273ed6;
           (jQuery("body")[_0x5b4d34(0x1d5)](_0x5b4d34(0x1dc)),
@@ -107,55 +107,55 @@ function _0x1d03(_0x48cf68, _0x554970) {
               jQuery(_0x3e0354(0x204))[_0x3e0354(0x203)](_0x3e0354(0x1ef));
             }),
             jQuery(".wsmenu\x20>\x20.wsmenu-list\x20>\x20li")
-            [_0x5b4d34(0x1f8)](_0x5b4d34(0x202))
-            [_0x5b4d34(0x1e3)](_0x5b4d34(0x1e6)),
+              [_0x5b4d34(0x1f8)](_0x5b4d34(0x202))
+              [_0x5b4d34(0x1e3)](_0x5b4d34(0x1e6)),
             jQuery(_0x5b4d34(0x1ee))
-            ["has"](_0x5b4d34(0x1e0))
-            ["prepend"](_0x5b4d34(0x1e6)),
+              ["has"](_0x5b4d34(0x1e0))
+              ["prepend"](_0x5b4d34(0x1e6)),
             jQuery(_0x5b4d34(0x1fd))[_0x5b4d34(0x1db)](function () {
               var _0x55b5ef = _0x5b4d34;
               (jQuery(this)
-              [_0x55b5ef(0x1fc)](_0x55b5ef(0x1f9))
-              [_0x55b5ef(0x1fe)]()
-              [_0x55b5ef(0x1d8)]()
-              ["children"]()
-              ["removeClass"](_0x55b5ef(0x1f9)),
+                [_0x55b5ef(0x1fc)](_0x55b5ef(0x1f9))
+                [_0x55b5ef(0x1fe)]()
+                [_0x55b5ef(0x1d8)]()
+                ["children"]()
+                ["removeClass"](_0x55b5ef(0x1f9)),
                 jQuery(
                   ".wsmenu\x20>\x20.wsmenu-list\x20>\x20li\x20>\x20.sub-menu,\x20.wsmegamenu",
                 )
-                [_0x55b5ef(0x1ec)](
-                  jQuery(this)[_0x55b5ef(0x1d8)](
-                    ".wsmenu\x20>\x20.wsmenu-list\x20>\x20li\x20>\x20.sub-menu,\x20.wsmegamenu",
-                  ),
-                )
-                [_0x55b5ef(0x1f6)](_0x55b5ef(0x1ff)),
+                  [_0x55b5ef(0x1ec)](
+                    jQuery(this)[_0x55b5ef(0x1d8)](
+                      ".wsmenu\x20>\x20.wsmenu-list\x20>\x20li\x20>\x20.sub-menu,\x20.wsmegamenu",
+                    ),
+                  )
+                  [_0x55b5ef(0x1f6)](_0x55b5ef(0x1ff)),
                 jQuery(this)
-                ["siblings"](".sub-menu")
-                [_0x55b5ef(0x1e9)](_0x55b5ef(0x1ff)),
+                  ["siblings"](".sub-menu")
+                  [_0x55b5ef(0x1e9)](_0x55b5ef(0x1ff)),
                 jQuery(this)
-                [_0x55b5ef(0x1d8)](_0x55b5ef(0x1e0))
-                ["slideToggle"]("slow"));
+                  [_0x55b5ef(0x1d8)](_0x55b5ef(0x1e0))
+                  ["slideToggle"]("slow"));
             }),
             jQuery(
               ".wsmenu\x20>\x20.wsmenu-list\x20>\x20li\x20>\x20ul\x20>\x20li",
             )
-            [_0x5b4d34(0x1f8)](_0x5b4d34(0x202))
-            [_0x5b4d34(0x1e3)](_0x5b4d34(0x1ed)),
+              [_0x5b4d34(0x1f8)](_0x5b4d34(0x202))
+              [_0x5b4d34(0x1e3)](_0x5b4d34(0x1ed)),
             jQuery(
               ".wsmenu\x20>\x20.wsmenu-list\x20>\x20li\x20>\x20ul\x20>\x20li\x20>\x20ul\x20>\x20li",
             )
-            [_0x5b4d34(0x1f8)](".sub-menu")
-            [_0x5b4d34(0x1e3)](
-              "<span\x20class=\x22wsmenu-click02\x22><i\x20class=\x22wsmenu-arrow\x22></i></span>",
-            ),
+              [_0x5b4d34(0x1f8)](".sub-menu")
+              [_0x5b4d34(0x1e3)](
+                "<span\x20class=\x22wsmenu-click02\x22><i\x20class=\x22wsmenu-arrow\x22></i></span>",
+              ),
             jQuery(".wsmenu-click02")[_0x5b4d34(0x1db)](function () {
               var _0x199257 = _0x5b4d34;
               (jQuery(this)
-              [_0x199257(0x1da)](_0x199257(0x1ea))
-              [_0x199257(0x1fc)](_0x199257(0x1f4)),
+                [_0x199257(0x1da)](_0x199257(0x1ea))
+                [_0x199257(0x1fc)](_0x199257(0x1f4)),
                 jQuery(this)
-                ["siblings"](_0x199257(0x205))
-                [_0x199257(0x1e9)](_0x199257(0x1ff)));
+                  ["siblings"](_0x199257(0x205))
+                  [_0x199257(0x1e9)](_0x199257(0x1ff)));
             }),
             jQuery(window)["on"]("resize", function () {
               var _0x5d70d5 = _0x5b4d34;

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://premkrrajbhar.github.io/prem_kumar_rajbhar/sitemap.xml

@@ -13,9 +13,70 @@
     sans-serif !important;
 }
 
-.wsmobileheader {
-  z-index: 9;
+html,
+body {
+  overflow-x: hidden;
 }
+
+/* == new navbar == */
+.navbar {
+  background: #fff;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav-item a {
+  display: flex;
+  align-items: center;
+}
+
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  position: relative;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-toggle span {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #6a717f; /* Change to black if your button is light */
+  border-radius: 50px;
+  transition: all 0.35s ease-in-out;
+}
+
+.menu-toggle span:nth-child(1) {
+  transform: translateY(-7px);
+}
+
+.menu-toggle span:nth-child(2) {
+  transform: translateY(0);
+}
+
+.menu-toggle span:nth-child(3) {
+  transform: translateY(7px);
+}
+
+/* Animate to X */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* .wsmobileheader {
+  z-index: 9;
+} */
 
 .profileDetails {
   text-decoration: none;
@@ -27,14 +88,14 @@
   gap: 6px;
 }
 
-.navbarRow {
+/* .navbarRow {
   display: flex;
   align-items: center;
-}
+} */
 
-.profileNavbar {
+/* .profileNavbar {
   text-align: start;
-}
+} */
 
 .navbarLinks {
   display: flex;
@@ -61,18 +122,49 @@
   color: #155dfc;
 }
 
+.offcanvas {
+  max-width: 78vw !important;
+  padding: 10px 0 !important;
+  border: none !important;
+}
+
+.offcanvas .offcanvas-body {
+  padding: 0 !important;
+}
+
+.offCanvasBodyContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .mobileOffCanvas {
   padding: 12px;
   margin-left: 12px;
   padding-bottom: 0;
 }
 
-.mobileOffCanvas h2 {
+.offcanvasHeader h2 {
   color: #0a0a0a;
   font-weight: 600;
   font-size: 18px;
-  margin-top: 8px;
-  margin-bottom: 6px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.offcanvasCardTitle {
+  margin-bottom: 0;
+}
+
+.offcanvas-header {
+  padding: 0 !important;
+  margin: 0 20px !important;
+  align-items: start !important;
+  flex-direction: column !important;
+}
+
+.offcanvasHeader {
+  margin: 4px 20px !important;
 }
 
 .offcanTxt {
@@ -121,7 +213,8 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  transform: all 0.2s ease-in-out;
+  text-decoration: none;
+  transform: all 0.2s ease-in-out !important;
 }
 
 .offCanvasCtaBtn:hover {
@@ -134,7 +227,7 @@
 }
 
 .mobileOffCanvasCtaBox {
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 0 18px;
 }
 
@@ -152,6 +245,7 @@
   gap: 4px;
   padding: 8px 0;
   transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 .githubBtn:hover {
@@ -183,6 +277,7 @@
   justify-content: center;
   gap: 4px;
   transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 .mobileCta a:hover {

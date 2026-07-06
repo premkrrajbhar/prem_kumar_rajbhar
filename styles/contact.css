@@ -1,5 +1,5 @@
 .contactSection {
-  padding-top: 45px;
+  padding-top: 100px;
   margin-bottom: 5rem;
 }
 
@@ -35,40 +35,60 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 3px 10px;
-  border-radius: 5px;
-  background: #b9f8cf91;
+  padding: 8px 20px;
   margin-bottom: 1.3rem;
-  border: 1px solid #9bf3ba;
+
+  background: #f8fafc;
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  border-radius: 999px;
+
+  transition: all 0.3s ease;
 }
 
-.circleDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  animation: cirDot 1.8s ease-in-out infinite;
-}
-
-@keyframes cirDot {
-  0%,
-  100% {
-    opacity: 0.5;
-    box-shadow: 0 0 2px #22c55e;
-  }
-
-  50% {
-    opacity: 1;
-    box-shadow:
-      0 0 8px #22c55e,
-      0 0 12px #22c55e;
-  }
+.highlightBox:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
 .highlightBox span:last-child {
   font-size: 12px;
-  color: #008236;
   font-weight: 500;
+  color: #45556c;
+}
+
+.circleDot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+
+.circleDot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(34, 197, 94, 0.45);
+  animation: pulseDot 2s ease-out infinite;
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  70% {
+    transform: scale(3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
 }
 
 .profilePicBox {
@@ -336,7 +356,7 @@ button:hover {
 
 @media (max-width: 786px) {
   .contactSection {
-    padding-top: 20px;
+    padding-top: 6rem;
   }
 
   .contactSection .row .col-10 {

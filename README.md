@@ -1,31 +1,16 @@
+# Prem Kumar Rajbhar | Portfolio
 
-# Portfolio Website
-
-Welcome to my personal portfolio! This website is designed to showcase my skills and projects as a Web Developer. I have built this portfolio to present my work to potential employers as part of my job search.
-
-
-## 🔗 Live Demo
-
-Check out my Portfolio live here: **[Portfolio](https://premkrrajbhar.github.io/prem_kumar_rajbhar/)**
+Welcome to my personal portfolio! I'm a **Software Developer** with experience in **Frontend Development and Mobile Application Development**, passionate about programming, problem-solving, and building practical software solutions.
 
 
-## 🚀 Features
+## 🔗 Live Portfolio
 
-- **Responsive Design**: Seamlessly adapts to various screen sizes for a user-friendly experience.
-- **Interactive Navbar**: Mobile-friendly with a smooth toggle effect for easy navigation.
-- **Project Showcase**: Displays key projects, skills and experience.
+[https://premkrrajbhar.github.io/prem_kumar_rajbhar/](https://premkrrajbhar.github.io/prem_kumar_rajbhar/)
 
-## 🛠️ Technologies Used
+## 📬 Contact
 
-- **HTML5** and **CSS3** for structure and styling.
-- **JavaScript** for interactivity.
+- **LinkedIn:** [Prem Kumar Rajbhar](https://linkedin.com/in/premkrrajbhar)
+- **GitHub:** [premkrrajbhar](https://github.com/premkrrajbhar)
+- **Email:** [premkumarrajbhar22@gmail.com](mailto:premkumarrajbhar22@gmail.com)
 
-## 📞 Contact
-
-I’m currently seeking job opportunities, and I would love to connect with potential employers or collaborators:
-
-- **LinkedIn**: [premkrrajbhar](https://linkedin.com/in/premkrrajbhar)
-- **Email**: [premkumarrajbhar22@gmail.com](mailto:premkumarrajbhar22@gmail.com)
-- **GitHub**: [premkrrajbhar](https://github.com/premkrrajbhar)
-
-Thank you for viewing my portfolio!
+Thank you for visiting my portfolio!

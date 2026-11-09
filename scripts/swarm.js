@@ -6,12 +6,12 @@
     selector: "",
     cursors: 22,
     maxCursors: 28,
-    speed: 1.5,
-    intro: 1800,
+    speed: 1.3,
+    intro: 1000,
     max: 180,
     labels: false,
     badge: true,
-    follow: true,
+    follow: false,
     guides: 6,
     gap: 130,
     hit: 30,
@@ -47,6 +47,29 @@
   var reduced =
     w.matchMedia && w.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var started = false;
+
+  var once = A.once !== "false";
+  var store = A.store === "session" ? "sessionStorage" : "localStorage";
+  function pageKey() {
+    var p =
+      location.pathname.replace(/index\.html?$/i, "").replace(/\/+$/, "") ||
+      "/";
+    return "swb-seen:" + p;
+  }
+  function seen() {
+    if (!once) return false;
+    try {
+      return !!w[store].getItem(pageKey());
+    } catch (e) {
+      return false;
+    }
+  }
+  function mark() {
+    if (!once) return;
+    try {
+      w[store].setItem(pageKey(), "1");
+    } catch (e) {}
+  }
 
   function fromAttrs() {
     var o = {};
@@ -121,6 +144,11 @@
 
   function init(opts) {
     if (started || reduced) return;
+    if (seen()) {
+      started = true;
+      return;
+    }
+    mark();
     started = true;
     var o = merge(opts),
       S = Math.max(0.3, o.speed);
@@ -804,12 +832,12 @@
           if (!tk) {
             c._idle = true;
             c.classList.add("free");
-            if (mobile) fadeAway(c);
+            fadeAway(c); // smooth fade on every device
             await sleep(180);
             continue;
           }
           tk.state = "run";
-          if (mobile) fadeBack(c);
+          fadeBack(c); // fade back in when it gets a new task
           c.style.opacity = 1;
           try {
             await (tk.master
@@ -1220,9 +1248,20 @@
     }
   }
 
-  w.SwarmBuild = { init: init, defaults: defaults, version: "3.3.0" };
+  w.SwarmBuild = {
+    init: init,
+    defaults: defaults,
+    version: "3.3.0",
+    reset: function () {
+      try {
+        Object.keys(w[store]).forEach(function (k) {
+          if (k.indexOf("swb-seen:") === 0) w[store].removeItem(k);
+        });
+      } catch (e) {}
+    },
+  };
   if (A.auto !== "false") {
-    hideEarly();
+    if (!seen()) hideEarly(); // only hide the page if the effect will play
     var start = function () {
       init(fromAttrs());
     };

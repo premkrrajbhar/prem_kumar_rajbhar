@@ -158,25 +158,66 @@ article {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  margin: 8px 0;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  margin: 1.75rem 0;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 12px 32px -16px rgba(15, 23, 42, 0.55);
 }
 
 .codeHeader {
   display: flex;
   align-items: center;
-  height: 44px;
-  padding: 0 16px;
-  background: #f5f5f5;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 0.7rem 1rem;
+  background: #111c33;
+  border-bottom: 1px solid #1e293b;
+}
+
+.codeHeader::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 17px 0 0 #febc2e, 34px 0 0 #28c840;
+  margin-right: 50px;
 }
 
 .codeHeader span {
-  font-family: monospace;
-  font-size: 14px;
-  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #8fa3bf;
+}
+
+.codeCopy {
+  margin-left: auto;
+  padding: 0.28rem 0.7rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  background: transparent;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.codeCopy:hover {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+.codeCopy:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
 }
 
 .codeScroll {
@@ -186,6 +227,21 @@ article {
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #334155 #0b1424;
+}
+
+.codeScroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.codeScroll::-webkit-scrollbar-track {
+  background: #0b1424;
+}
+
+.codeScroll::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 8px;
 }
 
 .codeScroll pre {
@@ -193,33 +249,129 @@ article {
   width: max-content;
   min-width: 100%;
   margin: 0;
-  padding: 0 10px;
+  padding: 1rem 1.15rem;
   box-sizing: border-box;
   white-space: pre;
+  tab-size: 2;
 }
 
 .codeScroll code {
   display: block;
-  font-size: 14px;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #e2e8f0;
   white-space: pre;
 }
 
+
+.blogContent p code,
+.blogContent li code,
+.blogContent td code,
+.blogContent th code {
+  padding: 0.15em 0.4em;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  color: #0f172b;
+  white-space: nowrap;
+}
+
+
+.blogContent .tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+}
+
+.blogContent .tableWrap::-webkit-scrollbar {
+  height: 6px;
+}
+
+.blogContent .tableWrap::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+.blogContent .tableWrap::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+
+.blogContent table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.blogContent thead {
+  background: #f8fafc;
+}
+
+.blogContent th,
+.blogContent td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e4e4e7;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.blogContent th {
+  font-weight: 600;
+  color: #0f172b;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.blogContent tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.blogContent tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+
+
+
 @media (max-width: 768px) {
+  .codeBlock {
+    margin: 1.25rem 0;
+    border-radius: 10px;
+  }
+
   .codeHeader {
-    height: 40px;
-    padding: 0 12px;
+    padding: 0.6rem 0.85rem;
+  }
+
+  .codeHeader::before {
+    margin-right: 38px;
   }
 
   .codeHeader span {
-    font-size: 13px;
+    font-size: 0.72rem;
+  }
+
+  .codeCopy {
+    padding: 0.24rem 0.6rem;
+    font-size: 0.65rem;
   }
 
   .codeScroll pre {
-    padding: 16px 12px;
+    padding: 0.85rem 0.9rem;
   }
 
   .codeScroll code {
-    font-size: 13px;
+    font-size: 0.78rem;
   }
 
   .blogHeader h1 {
@@ -229,4 +381,28 @@ article {
   main h2 {
     font-size: 20px;
   }
+
+    .blogContent th,
+  .blogContent td {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .blogContent th {
+    font-size: 0.72rem;
+  }
+
+  .blogContent p code,
+  .blogContent li code,
+  .blogContent td code,
+  .blogContent th code {
+    font-size: 0.82em;
+  }
 }
+
+@media (max-width: 480px) {
+  .codeHeader::before {
+    margin-right: 32px;
+  }
+}
+

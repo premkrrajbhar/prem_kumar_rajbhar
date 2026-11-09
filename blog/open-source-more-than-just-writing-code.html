@@ -1,0 +1,1448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1K4VTWJBCJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-1K4VTWJBCJ");
+    </script>
+    <title>
+      Open Source Is More Than Just Writing Code | Contributing Guide
+    </title>
+
+    <link
+      rel="shortcut icon"
+      href="../assets/favicon/prem_kumar_rajbhar_favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="canonical"
+      href="https://premkrrajbhar.github.io/prem_kumar_rajbhar/blog/open-source-more-than-just-writing-code.html"
+    />
+
+    <meta
+      name="keywords"
+      content="Open Source, Open Source Contribution, Git Workflow, GitHub Pull Request, Merge Conflicts, GSSoC, SWOC, Documentation Contribution, Open Source for Beginners, Software Development, Prem Kumar Rajbhar"
+    />
+
+    <meta
+      name="description"
+      content="Open source contributions extend well beyond code. A practical look at documentation, testing, reviews, Git workflows, merge conflicts, and what new contributors actually need to know."
+    />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Prem Kumar Rajbhar" />
+    <meta name="publisher" content="Prem Kumar Rajbhar" />
+
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Open Source Is More Than Just Writing Code"
+    />
+    <meta
+      property="og:description"
+      content="What open source contribution actually involves — documentation, testing, reviews, Git workflows, and the skills that matter beyond writing code."
+    />
+    <meta
+      property="og:url"
+      content="https://premkrrajbhar.github.io/prem_kumar_rajbhar/blog/open-source-more-than-just-writing-code.html"
+    />
+    <meta property="og:site_name" content="Prem Kumar Rajbhar" />
+    <meta
+      property="og:image"
+      content="https://premkrrajbhar.github.io/prem_kumar_rajbhar/assets/blogsImg/open-source-more-than-just-writing-code.webp"
+    />
+    <meta
+      property="og:image:alt"
+      content="Illustration of an open source development workflow with branching and pull requests"
+    />
+    <meta property="article:author" content="Prem Kumar Rajbhar" />
+    <meta property="article:published_time" content="2026-10-12" />
+    <meta property="article:section" content="Software Development" />
+    <meta property="article:tag" content="Open Source" />
+    <meta property="article:tag" content="Git" />
+    <meta property="article:tag" content="GitHub" />
+    <meta property="article:tag" content="Community" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Open Source Is More Than Just Writing Code"
+    />
+    <meta
+      name="twitter:description"
+      content="A practical guide to open source contribution — from documentation and testing to Git workflows and merge conflicts."
+    />
+    <meta
+      name="twitter:image"
+      content="https://premkrrajbhar.github.io/prem_kumar_rajbhar/assets/blogsImg/open-source-more-than-just-writing-code.webp"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Open Source Is More Than Just Writing Code",
+        "description": "Open source contributions extend well beyond code. A practical look at documentation, testing, code review, Git workflows, merge conflicts, and what new contributors actually need to know before their first pull request.",
+        "image": "https://premkrrajbhar.github.io/prem_kumar_rajbhar/assets/blogsImg/open-source-more-than-just-writing-code.webp",
+        "datePublished": "2026-10-12",
+        "dateModified": "2026-10-12",
+        "author": {
+          "@type": "Person",
+          "name": "Prem Kumar Rajbhar",
+          "url": "https://premkrrajbhar.github.io/prem_kumar_rajbhar/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Prem Kumar Rajbhar",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://premkrrajbhar.github.io/prem_kumar_rajbhar/assets/images/prem_kumar_rajbhar_profile_picture.webp"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://premkrrajbhar.github.io/prem_kumar_rajbhar/blog/open-source-more-than-just-writing-code.html"
+        },
+        "keywords": [
+          "Open Source",
+          "Git",
+          "GitHub",
+          "Merge Conflicts",
+          "Community",
+          "Software Development"
+        ],
+        "articleSection": "Software Development",
+        "inLanguage": "en",
+        "wordCount": "1650"
+      }
+    </script>
+
+    <link rel="stylesheet" href="../styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="../styles/common.css" />
+    <link rel="stylesheet" href="../styles/blog.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand profileDetails" href="../index.html">
+            <img
+              src="../assets/images/prem_kumar_rajbhar_profile_picture.webp"
+              style="height: 40px"
+              class="img-fluid"
+              alt="Prem Kumar Rajbhar profile picture"
+            />
+            Prem Kumar Rajbhar
+          </a>
+
+          <button
+            class="btn menu-toggle d-block d-lg-none"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample"
+            aria-label="Open navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbarLinks">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-house"
+                    aria-hidden="true"
+                  >
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                    <path
+                      d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path>
+                  </svg>
+                  Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../skills.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-briefcase-business"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 12h.01"></path>
+                    <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                    <path d="M22 13a18.15 18.15 0 0 1-20 0"></path>
+                    <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+                  </svg>
+                  Skills</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../projects.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-folder-open"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"
+                    ></path>
+                  </svg>
+                  Projects
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="../blog.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-notebook-text w-5 h-5 mb-0.5"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 6h4"></path>
+                    <path d="M2 10h4"></path>
+                    <path d="M2 14h4"></path>
+                    <path d="M2 18h4"></path>
+                    <rect width="16" height="20" x="4" y="2" rx="2"></rect>
+                    <path d="M9.5 8h5"></path>
+                    <path d="M9.5 12H16"></path>
+                    <path d="M9.5 16H14"></path>
+                  </svg>
+                  Blog
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="../contact.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail"
+                    aria-hidden="true"
+                  >
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  </svg>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div
+          class="offcanvas-body mobileOffCanvasCard text-start offCanvasBodyContainer"
+        >
+          <div class="offcanvasHeader">
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel">
+              Announcements
+            </h2>
+            <p class="offcanTxt">Latest updates and project highlights</p>
+          </div>
+
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="cardHeaderBox">
+                <div class="svgBox">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-calendar-days w-5 h-5"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 2v4"></path>
+                    <path d="M16 2v4"></path>
+                    <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                    <path d="M3 10h18"></path>
+                    <path d="M8 14h.01"></path>
+                    <path d="M12 14h.01"></path>
+                    <path d="M16 14h.01"></path>
+                    <path d="M8 18h.01"></path>
+                    <path d="M12 18h.01"></path>
+                    <path d="M16 18h.01"></path>
+                  </svg>
+                </div>
+                <h3 class="card-title offcanvasCardTitle">
+                  Follow the Fumiki Journey
+                </h3>
+              </div>
+              <p class="card-text offcanvasCardTxt">
+                Discover an easier way to learn Markdown with step-by-step
+                tutorials, syntax references, and hands-on examples built for
+                developers.
+              </p>
+
+              <a
+                href="https://premkrrajbhar.github.io/fumiki/"
+                class="offCanvasCtaBtn"
+              >
+                Learn More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-move-right-icon lucide-move-right"
+                  aria-hidden="true"
+                >
+                  <path d="M18 8L22 12L18 16"></path>
+                  <path d="M2 12H22"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="cardHeaderBox">
+                <div class="svgBox">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sparkles w-5 h-5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+                    ></path>
+                    <path d="M20 3v4"></path>
+                    <path d="M22 5h-4"></path>
+                    <path d="M4 17v2"></path>
+                    <path d="M5 18H3"></path>
+                  </svg>
+                </div>
+                <h3 class="card-title offcanvasCardTitle">
+                  Currently Building
+                </h3>
+              </div>
+              <p class="card-text offcanvasCardTxt">
+                Exploring new ideas in software development, frontend
+                technologies, and mobile app development while building
+                practical solutions that solve real-world problems and enhance
+                user experiences.
+              </p>
+
+              <a
+                href="https://github.com/premkrrajbhar"
+                class="offCanvasCtaBtn"
+              >
+                Learn More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-move-right-icon lucide-move-right"
+                  aria-hidden="true"
+                >
+                  <path d="M18 8L22 12L18 16"></path>
+                  <path d="M2 12H22"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="mobileOffCanvasCtaBox">
+            <a href="https://github.com/premkrrajbhar" class="githubBtn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-github w-6 h-6"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                ></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+              </svg>
+              Visit Github
+            </a>
+            <div class="mobileCta">
+              <a
+                href="../assets/resume/prem_kumar_rajbhar.pdf"
+                download
+                class="resumeBtn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-download-icon lucide-download"
+                  aria-hidden="true"
+                >
+                  <path d="M12 15V3"></path>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <path d="m7 10 5 5 5-5"></path>
+                </svg>
+                Download Resume
+              </a>
+
+              <a href="mailto:premkumarrajbhar22@gmail.com" class="contactBtn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-mail-icon lucide-mail"
+                  aria-hidden="true"
+                >
+                  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                </svg>
+                Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <section class="blogHeader">
+          <h1>Open Source Is More Than Just Writing Code</h1>
+
+          <div class="blogInfo">
+            <div class="tags">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-tag-icon lucide-tag"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                  />
+                  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+                Open Source</span
+              >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-tag-icon lucide-tag"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                  />
+                  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+                Git</span
+              >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-tag-icon lucide-tag"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                  />
+                  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+                GitHub</span
+              >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-tag-icon lucide-tag"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                  />
+                  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+                Community</span
+              >
+            </div>
+          </div>
+
+          <div class="authorInfo">
+            <div class="authDiv">
+              <img
+                src="../assets/images/prem_kumar_rajbhar_picture.webp"
+                class="img-fluid"
+                loading="lazy"
+                alt="Profile picture of Prem Kumar Rajbhar"
+              />
+              <div class="authorNameDsg">
+                <a href="https://www.linkedin.com/in/premkrrajbhar/">
+                  Prem Kumar Rajbhar
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-external-link w-4 h-4 mr-2"
+                    aria-hidden="true"
+                  >
+                    <path d="M15 3h6v6"></path>
+                    <path d="M10 14 21 3"></path>
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                  </svg>
+                </a>
+                <span>Software Developer</span>
+              </div>
+            </div>
+
+            <div class="date">
+              <time datetime="2026-10-12">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-calendar h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path d="M8 2v4"></path>
+                  <path d="M16 2v4"></path>
+                  <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                  <path d="M3 10h18"></path>
+                </svg>
+                October 12, 2026</time
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="blogContent">
+          <img
+            src="../assets/blogsImg/open-source-more-than-just-writing-code.webp"
+            class="img-fluid blogFirstImg"
+            loading="lazy"
+            alt="Illustration of an open source development workflow with branching and pull requests"
+          />
+
+          <p class="quoteTxt">
+            "The most useful contribution is not always the largest one. Often it
+            is the one that removes an obstacle someone else was about to
+            encounter."
+          </p>
+
+          <p>
+            When I began learning web development, my attention was fixed on a
+            narrow goal: understand how websites work and turn ideas into
+            working pages. The learning was largely solitary — tutorials,
+            small projects, and the usual cycle of writing code and debugging
+            it.
+          </p>
+
+          <p>
+            At some point I encountered the term open source. I had seen it
+            before, but I had no clear sense of what it involved or how anyone
+            became part of it. So I began looking into it: learning Git
+            commands, browsing GitHub, and reading the documentation of projects
+            that interested me.
+          </p>
+
+          <p>
+            What became clear fairly quickly was that developers were not only
+            building things privately. They were publishing their work and
+            inviting others to study it, use it, and improve it. That raised a
+            more interesting question than the one I had started with: was open
+            source really just about writing code?
+          </p>
+
+          <p>
+            After building a few projects of my own and contributing to existing
+            ones, I found the answer to be considerably broader than I had
+            expected.
+          </p>
+
+          <h2>What Is Open Source?</h2>
+
+          <p>
+            Open-source software is software whose source code is available
+            under a licence permitting people to use, study, modify, and
+            redistribute it — within the terms of that licence. With closed
+            software, you typically interact only with the finished product. With
+            an open-source project, you can usually examine how it was built,
+            follow the reasoning behind its decisions, and, if the project
+            welcomes contributions, help improve it.
+          </p>
+
+          <p>
+            What I find valuable about this model is that learning no longer has
+            to happen in isolation. You can study code written by someone far more
+            experienced, ask questions in public, share what you have figured
+            out, and collaborate with people you may never meet in person.
+          </p>
+
+          <p>
+            It is worth being precise, though: open source does not mean that
+            anything is permitted. Every project carries its own licence,
+            maintainers, and contribution guidelines. Checking those before
+            starting is part of the process, not an optional extra.
+          </p>
+
+          <h2>Open Source Is Not Only About Coding</h2>
+
+          <p>
+            Before getting involved, I associated open source almost entirely
+            with writing code. I see it differently now.
+          </p>
+
+          <p>
+            You can contribute by fixing a bug, implementing a feature, or
+            making a page more responsive. You can equally contribute by
+            improving documentation, testing a proposed change, writing a
+            reproducible bug report, auditing accessibility, reviewing a pull
+            request, or helping another contributor understand the project.
+          </p>
+
+          <p>
+            These contributions do not all look equally impressive in a
+            screenshot, but each one improves the project in a real way.
+          </p>
+
+          <p>
+            Consider a concrete example. A developer follows a project's setup
+            guide but gets stuck because one step is missing. Correcting that
+            instruction may save the next ten people from hitting the same wall.
+            That is a genuinely useful contribution, and it involved no new
+            feature at all.
+          </p>
+
+          <p>
+            The objective is not to make the largest possible change. It is to
+            understand what a project needs and help where you can.
+          </p>
+
+          <h2>You Probably Already Use Open-Source Software</h2>
+
+          <p>
+            Open source is not confined to one language or one kind of developer.
+            It underpins operating systems, browsers, publishing platforms, and
+            the tools developers reach for every day.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Linux</strong> — an open-source operating-system kernel
+              used across servers and embedded systems
+            </li>
+            <li>
+              <strong>Mozilla Firefox</strong> — a browser whose development
+              spans features, compatibility, accessibility, and testing
+            </li>
+            <li>
+              <strong>WordPress</strong> — an open-source publishing platform
+              supported by work on its core, themes, plugins, and documentation
+            </li>
+            <li>
+              <strong>Git</strong> — the version-control system that made
+              collaborative development practical in the first place
+            </li>
+          </ul>
+
+          <p>
+            Git was particularly significant in my own path. Learning it gave me
+            a way to manage my work, but more importantly it introduced me to the
+            workflow that most open-source projects are built around.
+          </p>
+
+          <p>
+            These examples make an important point: open source is not a
+            separate corner of software development. It is woven into the tools
+            and technology most developers rely on without thinking about it.
+          </p>
+
+          <h2>What Should You Learn Before Contributing?</h2>
+
+          <p>
+            You do not need to know everything before your first contribution. I
+            certainly did not. A handful of fundamentals will make the experience
+            considerably less confusing, however.
+          </p>
+
+          <h3>Understand the technology you are interested in</h3>
+
+          <p>
+            If you work on the frontend, start with the fundamentals of HTML,
+            CSS, and JavaScript, and look for projects using technologies you are
+            already comfortable with. More advanced codebases become approachable
+            as your confidence grows.
+          </p>
+
+          <h3>Learn the Git and GitHub workflow</h3>
+
+          <p>
+            Cloning a repository, creating a branch, committing changes, pushing,
+            and opening a pull request form the core loop. You do not need to
+            memorise every Git command, but fluency in the basic workflow matters
+            far more than breadth.
+          </p>
+
+          <h3>Read the project documentation</h3>
+
+          <p>
+            Begin with the README and the contribution guidelines. Understand how
+            to set the project up, run it locally, and test your changes. A small
+            investment here prevents a great deal of wasted effort later.
+          </p>
+
+          <h3>Practise debugging</h3>
+
+          <p>
+            Not every issue arrives with an obvious solution. You will need to
+            reproduce bugs, trace through unfamiliar code, read error messages
+            carefully, and ask questions when you are genuinely stuck. That is
+            part of the work rather than a sign of inexperience.
+          </p>
+
+          <h3>Be open to feedback</h3>
+
+          <p>
+            Your pull request may need changes before it can be merged. This is
+            normal. A review is not a rejection; it is usually an opportunity to
+            understand the codebase's conventions and improve your solution.
+          </p>
+
+          <p>
+            None of this has to be completed before you start. Most of it is
+            learned while contributing. Waiting until you feel entirely ready is
+            itself a way of not beginning.
+          </p>
+
+          <h2>Building My Own Open-Source Projects</h2>
+
+          <p>
+            Before contributing to other people's work, I began publishing
+            projects of my own. Some of them are Fumiki, HayamiQR, and Yukashi.
+          </p>
+
+          <p>
+            Building and releasing my own projects gave me space to try ideas,
+            solve problems, and make decisions without following a tutorial step
+            by step. It also forced me to think beyond getting something to work
+            once. If a project is going to continue, its structure, usability, and
+            readability matter — particularly if another developer may one day
+            open the code.
+          </p>
+
+          <p>
+            I still work on improving these projects. They are part of an
+            ongoing learning process rather than something that became finished
+            the moment a first version existed.
+          </p>
+
+          <p>
+            Publishing a project as open source also creates the possibility that
+            someone else will find it useful. Whether a person adopts it, learns
+            from it, or suggests an improvement, the work can extend beyond my own
+            screen.
+          </p>
+
+          <h2>My Experience Contributing to Existing Projects</h2>
+
+          <p>
+            The opportunity to contribute to established open-source projects
+            came after I entered the software industry and started my first job in
+            the field.
+          </p>
+
+          <p>
+            During GirlScript Summer of Code 2025, I contributed to two projects.
+            One of my contributions was merged into the main branch. Along the
+            way, I ran into merge conflicts while updating my branch from the
+            upstream repository and had to resolve them manually.
+          </p>
+
+          <p>
+            That experience changed how Git felt to me. Reading about merge
+            conflicts is one thing; confronting them in a real project and working
+            through the conflicting changes is quite another. It made clear why
+            tracking branches carefully matters when several people are editing
+            the same codebase.
+          </p>
+
+          <p>
+            Later I participated in SWOC 2026, contributing while holding a
+            full-time role.
+          </p>
+
+          <p>
+            Balancing the two requires planning. A job has its own
+            responsibilities, and open source demands enough time to understand a
+            project, investigate issues, and make considered changes. Treating
+            every project as something to rush through does not produce good
+            work, so I had to be realistic about the time I could commit.
+          </p>
+
+          <p>
+            These experiences also clarified how different contributing to an
+            existing project is from starting your own. You have to understand
+            code someone else wrote, follow conventions you did not choose, and be
+            willing to adjust your approach.
+          </p>
+
+          <p>
+            I am still looking for projects to contribute to. Participating in a
+            couple of programmes does not mean the learning is finished; it simply
+            provides more experience to build on.
+          </p>
+
+          <h2>What I Appreciate Most About Open Source</h2>
+
+          <p>
+            What I value most is seeing people contribute because they care about
+            a project or believe it can help others.
+          </p>
+
+          <p>
+            Contributors regularly spend their time fixing bugs, improving
+            documentation, helping beginners, or building features that benefit a
+            wider community. They are not necessarily paid for every contribution,
+            yet they continue to give their time and knowledge.
+          </p>
+
+          <p>
+            It is worth noting that open source is not defined by unpaid work.
+            Paid developers, company-sponsored contributions, and funded
+            maintainership are all part of the ecosystem. What matters to me is the
+            collaboration itself: people sharing what they know and improving
+            something together.
+          </p>
+
+          <p>
+            That idea carries into my own work. I want to keep improving my
+            projects, keep learning from other developers, and build things that
+            might genuinely be useful to someone else. Even a small contribution
+            can make a difference to the person who needed it.
+          </p>
+
+          <h2>How to Make Your First Contribution</h2>
+
+          <p>
+            If you want to try contributing, start small. There is no requirement
+            to begin with a major feature or a complex bug.
+          </p>
+
+          <ol>
+            <li>
+              <strong>Find a project that interests you.</strong> It could be a
+              tool you already use or a project built with a technology you are
+              learning.
+            </li>
+            <li>
+              <strong>Read the README and contribution guidelines.</strong> Confirm
+              how the project works and whether it accepts contributions.
+            </li>
+            <li>
+              <strong>Explore the issues.</strong> Look for a task that matches
+              your current skills. Some projects label beginner-friendly issues,
+              but read the discussion before choosing one.
+            </li>
+            <li>
+              <strong>Set the project up and investigate.</strong> Try to reproduce
+              the issue or understand the improvement being requested.
+            </li>
+            <li>
+              <strong>Make a focused change.</strong> Create a branch, test your
+              work, and explain clearly what you changed and why when you open a
+              pull request.
+            </li>
+            <li>
+              <strong>Learn from the review.</strong> If the maintainer requests
+              changes, treat the feedback as part of the process rather than a
+              setback.
+            </li>
+          </ol>
+
+          <p>
+            The core workflow is the same across most projects, and it is worth
+            becoming comfortable with it:
+          </p>
+
+          <div class="codeBlock">
+            <div class="codeHeader">
+              <span>terminal.sh</span>
+            </div>
+            <div class="codeScroll">
+              <pre><code># 1. Clone your fork and register the upstream remote
+git clone https://github.com/your-username/project.git
+cd project
+git remote add upstream https://github.com/original-owner/project.git
+
+# 2. Create a branch for your change
+git checkout -b fix/setup-guide-typo
+
+# 3. Commit and push
+git add .
+git commit -m "Fix missing step in setup guide"
+git push origin fix/setup-guide-typo
+
+# 4. Open a pull request on GitHub from your branch</code></pre>
+            </div>
+          </div>
+
+          <h3>Be prepared for merge conflicts</h3>
+
+          <p>
+            When multiple developers work on the same project, their changes can
+            overlap. Another contributor might update a file while you are working
+            from an older version of it. When you attempt to merge your changes
+            with the latest code, Git may report a conflict.
+          </p>
+
+          <p>
+            Resolving one means reviewing the conflicting sections, deciding what
+            should be kept, and testing the result before continuing:
+          </p>
+
+          <div class="codeBlock">
+            <div class="codeHeader">
+              <span>terminal.sh</span>
+            </div>
+            <div class="codeScroll">
+              <pre><code># Fetch the latest changes from the original repository
+git fetch upstream
+git merge upstream/main
+
+# Git reports the conflicting files
+# CONFLICT (content): Merge conflict in src/components/Navbar.jsx
+
+# Open the file, resolve the marked sections, then:
+git add src/components/Navbar.jsx
+git commit -m "Resolve merge conflict with upstream/main"
+git push origin fix/setup-guide-typo</code></pre>
+            </div>
+          </div>
+
+          <p>
+            I encountered merge conflicts while contributing to an open-source
+            project, and doing so made it clear why keeping a branch current and
+            understanding Git's workflow are not optional skills.
+          </p>
+
+          <p>
+            If your first contribution turns out to be documentation, a small UI
+            fix, a test, or a detailed bug report, that is entirely appropriate. A
+            useful contribution does not have to be complicated. The goal is to
+            learn how to work with a project and its community.
+          </p>
+
+          <h2>Conclusion</h2>
+
+          <p>
+            When I first encountered open source, I was still working out how Git,
+            GitHub, and collaborative development actually fit together. Since
+            then I have built my own projects, contributed through GSSoC 2025 and
+            SWOC 2026, resolved merge conflicts, and learned a great deal from
+            working inside codebases I did not write.
+          </p>
+
+          <p>
+            I continue to improve Fumiki, HayamiQR, and Yukashi, and I continue
+            to look for new projects to contribute to. There is still a great deal
+            left to learn, which is a large part of what keeps the work
+            interesting.
+          </p>
+
+          <p>
+            For me, open source is not measured by the volume of code written or
+            the number of pull requests merged. It is also about learning from
+            other developers, understanding how real projects are maintained,
+            sharing knowledge, and solving problems collaboratively.
+          </p>
+
+          <p>
+            If you are considering contributing, there is no need to wait until
+            you consider yourself an expert. Start with what you already know,
+            stay curious, and look for something you can genuinely help improve.
+          </p>
+
+          <p>
+            The most valuable part of open source is often not the code you
+            contribute. It is what you learn along the way and what you help build
+            with others.
+          </p>
+        </section>
+      </article>
+
+      <section
+        class="stickyFooter fixed-bottom d-block d-md-none"
+        aria-label="Mobile quick navigation"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="stickyFooterBox">
+              <ul>
+                <li>
+                  <a href="../index.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-house"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
+                      ></path>
+                      <path
+                        d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                      ></path>
+                    </svg>
+                    Home
+                  </a>
+                </li>
+
+                <li>
+                  <a href="../skills.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-briefcase-business"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 12h.01"></path>
+                      <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                      <path d="M22 13a18.15 18.15 0 0 1-20 0"></path>
+                      <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+                    </svg>
+                    Skills
+                  </a>
+                </li>
+
+                <li>
+                  <a href="../projects.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-folder-open"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"
+                      ></path>
+                    </svg>
+                    Projects
+                  </a>
+                </li>
+
+                <li>
+                  <a href="../blog.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-notebook-text w-5 h-5 mb-0.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M2 6h4"></path>
+                      <path d="M2 10h4"></path>
+                      <path d="M2 14h4"></path>
+                      <path d="M2 18h4"></path>
+                      <rect width="16" height="20" x="4" y="2" rx="2"></rect>
+                      <path d="M9.5 8h5"></path>
+                      <path d="M9.5 12H16"></path>
+                      <path d="M9.5 16H14"></path>
+                    </svg>
+                    Blog
+                  </a>
+                </li>
+
+                <li>
+                  <a href="../contact.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    </svg>
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-3 footerIntro">
+            <h2>Prem Kumar Rajbhar</h2>
+            <p>
+              Software developer building modern
+              <br class="d-block d-md-none" />
+              web and mobile experiences
+            </p>
+            <ul class="footerSocialIcons">
+              <li>
+                <a
+                  href="https://github.com/premkrrajbhar"
+                  aria-label="Prem Kumar Rajbhar on GitHub"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-github w-6 h-6"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                    ></path>
+                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                  </svg>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/premkrrajbhar/"
+                  aria-label="Prem Kumar Rajbhar on LinkedIn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-linkedin w-6 h-6"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect width="4" height="12" x="2" y="9"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="mailto:premkumarrajbhar22@gmail.com"
+                  aria-label="Email Prem Kumar Rajbhar"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail w-6 h-6"
+                    aria-hidden="true"
+                  >
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h4>Explore</h4>
+            <ul class="footerLinks">
+              <li>
+                <a href="../index.html">Home</a>
+              </li>
+              <li>
+                <a href="../skills.html">Skills</a>
+              </li>
+              <li>
+                <a href="../projects.html">Projects</a>
+              </li>
+              <li>
+                <a href="../contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h4>Discover More</h4>
+            <ul class="footerLinks">
+              <li>
+                <a href="../index.html#workExperience">Experience</a>
+              </li>
+              <li>
+                <a href="../index.html#academicBackground">Education</a>
+              </li>
+              <li>
+                <a href="../index.html#certifications">Certifications</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h4>Let's Connect</h4>
+            <ul class="footerLinks">
+              <li>
+                <a href="../assets/resume/prem_kumar_rajbhar.pdf" download
+                  >Download Resume</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="footerBottom">
+          <div class="leftTxt">
+            <ul>
+              <li>
+                <p>&copy; 2026 Prem Kumar Rajbhar. All rights reserved</p>
+              </li>
+              <li>
+                <a href="mailto:premkumarrajbhar22@gmail.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail w-6 h-6"
+                    aria-hidden="true"
+                  >
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  </svg>
+                  premkumarrajbhar22@gmail.com
+                </a>
+              </li>
+
+              <li>
+                <a href="tel:+919310472323">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-phone"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                    ></path>
+                  </svg>
+                  +91 9310472323
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rightTxt d-none d-md-block">
+            <ul>
+              <li>Code &bull; Build &bull; Innovate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../scripts/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

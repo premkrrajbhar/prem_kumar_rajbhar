@@ -1,0 +1,1402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1K4VTWJBCJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-1K4VTWJBCJ");
+    </script>
+    <title>
+      What Really Happens When You Open a Website | Web Development Guide
+    </title>
+
+    <link
+      rel="shortcut icon"
+      href="../assets/favicon/prem_kumar_rajbhar_favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="canonical"
+      href="https://premkrrajbhar.github.io/prem_kumar_rajbhar/blog/what-happens-when-you-open-a-website.html"
+    />
+
+    <meta
+      name="keywords"
+      content="Browser Rendering, HTTP Request Lifecycle, DNS Resolution, TLS Handshake, Web Performance, DOM CSSOM, Frontend Development, Web Development, HTTP Status Codes, Website Loading Process, Prem Kumar Rajbhar"
+    />
+
+    <meta
+      name="description"
+      content="What happens between typing a URL and seeing a page rendered? DNS, TLS, HTTP, parsing, rendering, and performance — explained from a frontend developer's perspective."
+    />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Prem Kumar Rajbhar" />
+    <meta name="publisher" content="Prem Kumar Rajbhar" />
+
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="What Really Happens When You Open a Website"
+    />
+    <meta
+      property="og:description"
+      content="A practical walkthrough of the browser's lifecycle — from URL and DNS to HTTP, parsing, rendering, and perceived performance."
+    />
+    <meta
+      property="og:url"
+      content="https://premkrrajbhar.github.io/prem_kumar_rajbhar/blog/what-happens-when-you-open-a-website.html"
+    />
+    <meta property="og:site_name" content="Prem Kumar Rajbhar" />
+    <meta
+      property="og:image"
+      content="https://premkrrajbhar.github.io/prem_kumar_rajbhar/assets/blogsImg/what-happens-when-you-open-a-website.webp"
+    />
+    <meta
+      property="og:image:alt"
+      content="Illustration of a browser request lifecycle from URL entry to page rendering"
+    />
+    <meta property="article:author" content="Prem Kumar Rajbhar" />
+    <meta property="article:published_time" content="2026-10-10" />
+    <meta property="article:section" content="Web Development" />
+    <meta property="article:tag" content="Web Development" />
+    <meta property="article:tag" content="HTTP" />
+    <meta property="article:tag" content="Browser Rendering" />
+    <meta property="article:tag" content="DNS" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="What Really Happens When You Open a Website"
+    />
+    <meta
+      name="twitter:description"
+      content="DNS, TLS, HTTP, parsing, rendering, and performance — the full lifecycle of a website visit, explained from a frontend developer's perspective."
+    />
+    <meta
+      name="twitter:image"
+      content="https://premkrrajbhar.github.io/prem_kumar_rajbhar/assets/blogsImg/what-happens-when-you-open-a-website.webp"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "What Really Happens When You Open a Website",
+        "description": "A practical walkthrough of what happens between typing a URL and seeing a page rendered — DNS resolution, TLS, HTTP request and response, HTML/CSS/JS parsing, browser rendering, and the factors that influence perceived performance.",
+        "image": "https://premkrrajbhar.github.io/prem_kumar_rajbhar/assets/blogsImg/what-happens-when-you-open-a-website.webp",
+        "datePublished": "2026-10-10",
+        "dateModified": "2026-10-10",
+        "author": {
+          "@type": "Person",
+          "name": "Prem Kumar Rajbhar",
+          "url": "https://premkrrajbhar.github.io/prem_kumar_rajbhar/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Prem Kumar Rajbhar",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://premkrrajbhar.github.io/prem_kumar_rajbhar/assets/images/prem_kumar_rajbhar_profile_picture.webp"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://premkrrajbhar.github.io/prem_kumar_rajbhar/blog/what-happens-when-you-open-a-website.html"
+        },
+        "keywords": [
+          "Web Development",
+          "HTTP",
+          "Browser Rendering",
+          "DNS",
+          "Frontend Development",
+          "Web Performance"
+        ],
+        "articleSection": "Web Development",
+        "inLanguage": "en",
+        "wordCount": "1500"
+      }
+    </script>
+
+    <link rel="stylesheet" href="../styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="../styles/common.css" />
+    <link rel="stylesheet" href="../styles/blog.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand profileDetails" href="../index.html">
+            <img
+              src="../assets/images/prem_kumar_rajbhar_profile_picture.webp"
+              style="height: 40px"
+              class="img-fluid"
+              alt="Prem Kumar Rajbhar profile picture"
+            />
+            Prem Kumar Rajbhar
+          </a>
+
+          <button
+            class="btn menu-toggle d-block d-lg-none"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample"
+            aria-label="Open navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbarLinks">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-house"
+                    aria-hidden="true"
+                  >
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                    <path
+                      d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path>
+                  </svg>
+                  Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../skills.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-briefcase-business"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 12h.01"></path>
+                    <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                    <path d="M22 13a18.15 18.15 0 0 1-20 0"></path>
+                    <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+                  </svg>
+                  Skills</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../projects.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-folder-open"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"
+                    ></path>
+                  </svg>
+                  Projects
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="../blog.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-notebook-text w-5 h-5 mb-0.5"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 6h4"></path>
+                    <path d="M2 10h4"></path>
+                    <path d="M2 14h4"></path>
+                    <path d="M2 18h4"></path>
+                    <rect width="16" height="20" x="4" y="2" rx="2"></rect>
+                    <path d="M9.5 8h5"></path>
+                    <path d="M9.5 12H16"></path>
+                    <path d="M9.5 16H14"></path>
+                  </svg>
+                  Blog
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="../contact.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail"
+                    aria-hidden="true"
+                  >
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  </svg>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div
+          class="offcanvas-body mobileOffCanvasCard text-start offCanvasBodyContainer"
+        >
+          <div class="offcanvasHeader">
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel">
+              Announcements
+            </h2>
+            <p class="offcanTxt">Latest updates and project highlights</p>
+          </div>
+
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="cardHeaderBox">
+                <div class="svgBox">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-calendar-days w-5 h-5"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 2v4"></path>
+                    <path d="M16 2v4"></path>
+                    <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                    <path d="M3 10h18"></path>
+                    <path d="M8 14h.01"></path>
+                    <path d="M12 14h.01"></path>
+                    <path d="M16 14h.01"></path>
+                    <path d="M8 18h.01"></path>
+                    <path d="M12 18h.01"></path>
+                    <path d="M16 18h.01"></path>
+                  </svg>
+                </div>
+                <h3 class="card-title offcanvasCardTitle">
+                  Follow the Fumiki Journey
+                </h3>
+              </div>
+              <p class="card-text offcanvasCardTxt">
+                Discover an easier way to learn Markdown with step-by-step
+                tutorials, syntax references, and hands-on examples built for
+                developers.
+              </p>
+
+              <a
+                href="https://premkrrajbhar.github.io/fumiki/"
+                class="offCanvasCtaBtn"
+              >
+                Learn More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-move-right-icon lucide-move-right"
+                  aria-hidden="true"
+                >
+                  <path d="M18 8L22 12L18 16"></path>
+                  <path d="M2 12H22"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="cardHeaderBox">
+                <div class="svgBox">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-sparkles w-5 h-5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+                    ></path>
+                    <path d="M20 3v4"></path>
+                    <path d="M22 5h-4"></path>
+                    <path d="M4 17v2"></path>
+                    <path d="M5 18H3"></path>
+                  </svg>
+                </div>
+                <h3 class="card-title offcanvasCardTitle">
+                  Currently Building
+                </h3>
+              </div>
+              <p class="card-text offcanvasCardTxt">
+                Exploring new ideas in software development, frontend
+                technologies, and mobile app development while building
+                practical solutions that solve real-world problems and enhance
+                user experiences.
+              </p>
+
+              <a
+                href="https://github.com/premkrrajbhar"
+                class="offCanvasCtaBtn"
+              >
+                Learn More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-move-right-icon lucide-move-right"
+                  aria-hidden="true"
+                >
+                  <path d="M18 8L22 12L18 16"></path>
+                  <path d="M2 12H22"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="mobileOffCanvasCtaBox">
+            <a href="https://github.com/premkrrajbhar" class="githubBtn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-github w-6 h-6"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                ></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+              </svg>
+              Visit Github
+            </a>
+            <div class="mobileCta">
+              <a
+                href="../assets/resume/prem_kumar_rajbhar.pdf"
+                download
+                class="resumeBtn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-download-icon lucide-download"
+                  aria-hidden="true"
+                >
+                  <path d="M12 15V3"></path>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <path d="m7 10 5 5 5-5"></path>
+                </svg>
+                Download Resume
+              </a>
+
+              <a href="mailto:premkumarrajbhar22@gmail.com" class="contactBtn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-mail-icon lucide-mail"
+                  aria-hidden="true"
+                >
+                  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                </svg>
+                Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <section class="blogHeader">
+          <h1>What Really Happens When You Open a Website</h1>
+
+          <div class="blogInfo">
+            <div class="tags">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-tag-icon lucide-tag"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                  />
+                  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+                Web Development</span
+              >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-tag-icon lucide-tag"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                  />
+                  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+                HTTP</span
+              >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-tag-icon lucide-tag"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                  />
+                  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+                Browser Rendering</span
+              >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-tag-icon lucide-tag"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+                  />
+                  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+                DNS</span
+              >
+            </div>
+          </div>
+
+          <div class="authorInfo">
+            <div class="authDiv">
+              <img
+                src="../assets/images/prem_kumar_rajbhar_picture.webp"
+                class="img-fluid"
+                loading="lazy"
+                alt="Profile picture of Prem Kumar Rajbhar"
+              />
+              <div class="authorNameDsg">
+                <a href="https://www.linkedin.com/in/premkrrajbhar/">
+                  Prem Kumar Rajbhar
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-external-link w-4 h-4 mr-2"
+                    aria-hidden="true"
+                  >
+                    <path d="M15 3h6v6"></path>
+                    <path d="M10 14 21 3"></path>
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path>
+                  </svg>
+                </a>
+                <span>Software Developer</span>
+              </div>
+            </div>
+
+            <div class="date">
+              <time datetime="2026-10-10">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-calendar h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path d="M8 2v4"></path>
+                  <path d="M16 2v4"></path>
+                  <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                  <path d="M3 10h18"></path>
+                </svg>
+                October 10, 2026</time
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="blogContent">
+          <img
+            src="../assets/blogsImg/what-happens-when-you-open-a-website.webp"
+            class="img-fluid blogFirstImg"
+            loading="lazy"
+            alt="Illustration of a browser request lifecycle from URL entry to page rendering"
+          />
+
+          <p class="quoteTxt">
+            "A website feels instantaneous from the user's side. Behind the
+            screen, a careful sequence of negotiations between the browser, the
+            network, and the server must complete before a single pixel
+            appears."
+          </p>
+
+          <p>
+            Most of my working hours are spent inside HTML, CSS, JavaScript, and
+            responsive layouts. The code is what we touch directly, but it only
+            becomes a website after the browser has resolved, requested,
+            received, parsed, and rendered it. That full sequence is worth
+            understanding, because it explains many of the performance and
+            debugging problems frontend developers encounter daily.
+          </p>
+
+          <p>
+            This article follows a single page load from the moment a URL is
+            entered to the moment the first frame is painted, written from a
+            frontend developer's perspective.
+          </p>
+
+          <h2>1. The URL Defines the Destination</h2>
+
+          <p>
+            Every visit begins with a URL — a Uniform Resource Locator. Take a
+            typical example:
+          </p>
+
+          <div class="codeBlock">
+            <div class="codeHeader">
+              <span>url.txt</span>
+            </div>
+            <div class="codeScroll">
+              <pre><code>https://example.com/about
+
+  https://      ->  protocol  (how the browser communicates)
+  example.com   ->  domain    (where to connect)
+  /about        ->  path      (which resource to request)</code></pre>
+            </div>
+          </div>
+
+          <p>
+            Each part does specific work. The protocol determines the scheme the
+            browser will use; HTTPS adds an encryption layer on top of the
+            underlying connection. The domain is the human-readable name of the
+            server. The path identifies which page or resource is being
+            requested.
+          </p>
+
+          <p>
+            The browser cannot proceed until these components are understood.
+            The URL is effectively the set of instructions that sets everything
+            else in motion.
+          </p>
+
+          <h2>2. DNS Resolves the Name into an Address</h2>
+
+          <p>
+            Humans remember names. Networks route packets to addresses. DNS —
+            the Domain Name System — bridges that gap.
+          </p>
+
+          <p>
+            DNS is a distributed lookup system that maps a domain name to the IP
+            address the browser needs in order to reach the correct server. If
+            the answer is already cached locally, at the operating system level,
+            or by the ISP, the lookup completes almost instantly. Otherwise, a
+            resolver is consulted and the request travels up the hierarchy until
+            an authoritative answer is returned.
+          </p>
+
+          <p>
+            From a frontend perspective, DNS is largely invisible. It is also
+            one of the first places where latency accumulates, which is why DNS
+            configuration affects the perceived speed of a site even though it
+            happens entirely outside the application code.
+          </p>
+
+          <h2>3. A Secure Connection Is Negotiated</h2>
+
+          <p>
+            With an IP address resolved, the browser still needs a channel of
+            communication with the server. On the modern web, that almost always
+            means HTTPS.
+          </p>
+
+          <p>
+            The TLS handshake verifies the server's digital certificate,
+            confirms the browser is speaking to the correct host, and negotiates
+            the cryptographic keys used to protect the exchange. Once the
+            handshake is complete, information can travel between the browser
+            and the server without being readable to anyone observing the
+            traffic.
+          </p>
+
+          <p>
+            Beneath TLS, the transport layer may use TCP or QUIC, and the
+            application layer may use HTTP/1.1, HTTP/2, or HTTP/3. These
+            protocols have evolved specifically to reduce latency and improve
+            throughput. As frontend developers we rarely configure them
+            directly, but they shape how quickly our pages reach users.
+          </p>
+
+          <h2>4. The Browser Issues an HTTP Request</h2>
+
+          <p>
+            With the connection established, the browser can ask for the
+            resource. A minimal HTTP/1.1 request looks like this:
+          </p>
+
+          <div class="codeBlock">
+            <div class="codeHeader">
+              <span>request.http</span>
+            </div>
+            <div class="codeScroll">
+              <pre><code>GET /about HTTP/1.1
+Host: example.com</code></pre>
+            </div>
+          </div>
+
+          <p>
+            <code>GET</code> specifies the method — here, a request for the
+            resource at the given path. The <code>Host</code> header identifies
+            the site, which matters when multiple domains share an IP address.
+            Real requests carry additional headers: cookies, accepted content
+            types, caching directives, language preferences, and more.
+          </p>
+
+          <p>
+            The important distinction is that this is a request, not a download.
+            The browser is asking the server a question, and the server decides
+            how to answer it.
+          </p>
+
+          <h2>5. The Server Determines the Response</h2>
+
+          <p>
+            What happens next depends on how the website is built.
+          </p>
+
+          <p>
+            For a static site, the server may simply return an existing HTML
+            file. For a dynamic application, the request may trigger application
+            code, database queries, authentication checks, or calls to internal
+            services before the response is assembled. An e-commerce product
+            page, for example, is typically the result of a template rendered
+            with product details, pricing, and stock availability fetched on
+            demand.
+          </p>
+
+          <p>The response itself contains three components:</p>
+
+          <ul>
+            <li>A status code summarising the outcome</li>
+            <li>
+              Headers describing the response — content type, caching rules,
+              encoding, and more
+            </li>
+            <li>A body containing the requested content, where applicable</li>
+          </ul>
+
+          <p>Some status codes are familiar to anyone who has spent time on the web:</p>
+
+          <ul>
+            <li><strong>200 OK</strong> — the request succeeded</li>
+            <li><strong>301 Moved Permanently</strong> — the resource now lives at a different URL</li>
+            <li><strong>404 Not Found</strong> — the requested resource does not exist</li>
+            <li><strong>500 Internal Server Error</strong> — the server failed while processing the request</li>
+          </ul>
+
+          <p>
+            When the response reaches the browser, the next phase begins.
+          </p>
+
+          <h2>6. HTML, CSS, and JavaScript Are Parsed</h2>
+
+          <p>
+            This is the stage where the work of a frontend developer directly
+            enters the pipeline.
+          </p>
+
+          <p>
+            As HTML arrives, the browser parses it and begins constructing the
+            DOM — the Document Object Model, a tree representing the structure
+            of the page. Headings, sections, links, forms, and other elements
+            become nodes in that tree.
+          </p>
+
+          <p>
+            CSS is processed alongside the markup. The browser builds the
+            CSSOM, a parallel representation of the styling rules that apply to
+            the DOM. Together, the DOM and the CSSOM inform everything that
+            follows.
+          </p>
+
+          <p>
+            JavaScript occupies a different role. It can modify both trees,
+            respond to user input, fetch data, validate forms, and update the
+            interface without a full page reload.
+          </p>
+
+          <p>
+            A simple landing page illustrates the division of responsibilities
+            clearly:
+          </p>
+
+          <div class="codeBlock">
+            <div class="codeHeader">
+              <span>index.html</span>
+            </div>
+            <div class="codeScroll">
+              <pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;title&gt;Landing Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;&lt;!-- navigation --&gt;&lt;/header&gt;
+    &lt;main&gt;&lt;!-- hero, projects, lead form --&gt;&lt;/main&gt;
+    &lt;script src="main.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+          </div>
+
+          <p>
+            HTML defines structure. CSS defines appearance — layout, typography,
+            colour, spacing, and responsive behaviour. JavaScript defines
+            behaviour — menus, validation, sliders, and dynamic updates.
+          </p>
+
+          <p>
+            The browser does not wait for every resource to arrive before
+            starting. As files stream in, parsing and processing begin, which is
+            why a page can start appearing before all of its assets have
+            finished loading.
+          </p>
+
+          <h2>7. The Browser Renders the Page</h2>
+
+          <p>
+            Parsing produces structure and style. Rendering produces pixels. The
+            browser moves through several stages:
+          </p>
+
+          <div class="codeBlock">
+            <div class="codeHeader">
+              <span>render-pipeline.txt</span>
+            </div>
+            <div class="codeScroll">
+              <pre><code>HTML  -&gt;  DOM    \
+                  \
+                   -&gt;  Render Tree  -&gt;  Layout  -&gt;  Paint  -&gt;  Composite
+                  /
+CSS   -&gt;  CSSOM  /</code></pre>
+            </div>
+          </div>
+
+          <ul>
+            <li>
+              <strong>DOM and CSSOM construction</strong> — the browser builds
+              in-memory representations of the page structure and its
+              applicable styling
+            </li>
+            <li>
+              <strong>Render tree assembly</strong> — the browser determines
+              which nodes and styles will actually appear on screen, excluding
+              elements that do not render (such as those with
+              <code>display: none</code>)
+            </li>
+            <li>
+              <strong>Layout</strong> — the position and size of each element is
+              calculated
+            </li>
+            <li>
+              <strong>Paint</strong> — text, images, borders, backgrounds, and
+              other visual details are drawn
+            </li>
+            <li>
+              <strong>Compositing</strong> — the painted layers are combined
+              into the final image the user sees
+            </li>
+          </ul>
+
+          <p>
+            These stages do not always run in a single linear pass. A change to
+            the DOM or a style rule can trigger layout, paint, or compositing
+            work again. How expensive that rework becomes depends on what
+            changed and how the page is structured.
+          </p>
+
+          <p>
+            From a frontend perspective, this is where layout decisions, CSS
+            complexity, image dimensions, and DOM depth all have consequences.
+            The components we build eventually become individual pixels on a
+            user's screen.
+          </p>
+
+          <h2>8. JavaScript Drives Interaction</h2>
+
+          <p>
+            A page that only renders correctly is not yet a working interface.
+            Interaction is where JavaScript becomes essential.
+          </p>
+
+          <p>Familiar examples include:</p>
+
+          <ul>
+            <li>Clicking a menu icon opens the mobile navigation</li>
+            <li>Changing a filter updates the products listed on the page</li>
+            <li>Submitting a form runs validation and displays feedback</li>
+            <li>Switching a tab updates content without a full page reload</li>
+          </ul>
+
+          <p>
+            Some interactions are handled entirely in the browser. Others
+            require a request to a server or an external API. In each case, the
+            browser listens for events, executes JavaScript, updates the DOM,
+            and re-renders only what is needed.
+          </p>
+
+          <p>
+            Frontend development, therefore, is not only about making a design
+            look correct. It is about ensuring the interface responds predictably
+            and gives users a coherent experience.
+          </p>
+
+          <h2>9. Why Some Websites Feel Faster Than Others</h2>
+
+          <p>
+            We have all used sites that feel instant and sites that feel
+            sluggish. The difference comes from several overlapping factors:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Network conditions</strong> — high latency and low
+              bandwidth delay every request
+            </li>
+            <li>
+              <strong>Server response time</strong> — slow processing pushes
+              back the moment the browser can begin work
+            </li>
+            <li>
+              <strong>Resource size</strong> — unoptimised images and oversized
+              scripts inflate the payload
+            </li>
+            <li>
+              <strong>Caching and CDNs</strong> — cached assets and
+              geographically distributed delivery reduce round-trip time
+            </li>
+            <li>
+              <strong>JavaScript execution</strong> — heavy scripts can block
+              the main thread and delay interaction
+            </li>
+            <li>
+              <strong>Rendering complexity</strong> — expensive layout and paint
+              work can make even a simple interaction feel delayed
+            </li>
+            <li>
+              <strong>Device performance</strong> — low-end devices take longer
+              to process and display the same page
+            </li>
+          </ul>
+
+          <p>
+            As frontend developers, several of these are within our control.
+            Optimising images, trimming unnecessary JavaScript, writing
+            maintainable CSS, and loading resources in the right order all
+            contribute. Performance is not only a question of how quickly a page
+            appears — it is also about how quickly users can act and how
+            smoothly the interface responds once they do.
+          </p>
+
+          <h2>Conclusion</h2>
+
+          <p>
+            A website is easy to take for granted. Behind the interface, a
+            sequence of steps — DNS resolution, connection setup, HTTP request
+            and response, parsing, rendering, and interaction — must all
+            complete before anything appears on screen.
+          </p>
+
+          <p>
+            Understanding these steps gives frontend work a broader context.
+            The code we write is the final layer of a much larger system, and
+            that perspective makes us better at optimising, debugging, and
+            building experiences that hold up under real-world conditions.
+          </p>
+
+          <p>
+            If you found this article useful, or would like to discuss any of
+            these ideas further, feel free to connect. If you have a question or
+            run into an issue, I am always happy to help where I can.
+          </p>
+        </section>
+      </article>
+
+      <section
+        class="stickyFooter fixed-bottom d-block d-md-none"
+        aria-label="Mobile quick navigation"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="stickyFooterBox">
+              <ul>
+                <li>
+                  <a href="../index.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-house"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
+                      ></path>
+                      <path
+                        d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                      ></path>
+                    </svg>
+                    Home
+                  </a>
+                </li>
+
+                <li>
+                  <a href="../skills.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-briefcase-business"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 12h.01"></path>
+                      <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                      <path d="M22 13a18.15 18.15 0 0 1-20 0"></path>
+                      <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+                    </svg>
+                    Skills
+                  </a>
+                </li>
+
+                <li>
+                  <a href="../projects.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-folder-open"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"
+                      ></path>
+                    </svg>
+                    Projects
+                  </a>
+                </li>
+
+                <li>
+                  <a href="../blog.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-notebook-text w-5 h-5 mb-0.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M2 6h4"></path>
+                      <path d="M2 10h4"></path>
+                      <path d="M2 14h4"></path>
+                      <path d="M2 18h4"></path>
+                      <rect width="16" height="20" x="4" y="2" rx="2"></rect>
+                      <path d="M9.5 8h5"></path>
+                      <path d="M9.5 12H16"></path>
+                      <path d="M9.5 16H14"></path>
+                    </svg>
+                    Blog
+                  </a>
+                </li>
+
+                <li>
+                  <a href="../contact.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-mail"
+                      aria-hidden="true"
+                    >
+                      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    </svg>
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-3 footerIntro">
+            <h2>Prem Kumar Rajbhar</h2>
+            <p>
+              Software developer building modern
+              <br class="d-block d-md-none" />
+              web and mobile experiences
+            </p>
+            <ul class="footerSocialIcons">
+              <li>
+                <a
+                  href="https://github.com/premkrrajbhar"
+                  aria-label="Prem Kumar Rajbhar on GitHub"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-github w-6 h-6"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                    ></path>
+                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                  </svg>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/premkrrajbhar/"
+                  aria-label="Prem Kumar Rajbhar on LinkedIn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-linkedin w-6 h-6"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect width="4" height="12" x="2" y="9"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="mailto:premkumarrajbhar22@gmail.com"
+                  aria-label="Email Prem Kumar Rajbhar"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail w-6 h-6"
+                    aria-hidden="true"
+                  >
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h4>Explore</h4>
+            <ul class="footerLinks">
+              <li>
+                <a href="../index.html">Home</a>
+              </li>
+              <li>
+                <a href="../skills.html">Skills</a>
+              </li>
+              <li>
+                <a href="../projects.html">Projects</a>
+              </li>
+              <li>
+                <a href="../contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h4>Discover More</h4>
+            <ul class="footerLinks">
+              <li>
+                <a href="../index.html#workExperience">Experience</a>
+              </li>
+              <li>
+                <a href="../index.html#academicBackground">Education</a>
+              </li>
+              <li>
+                <a href="../index.html#certifications">Certifications</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h4>Let's Connect</h4>
+            <ul class="footerLinks">
+              <li>
+                <a href="../assets/resume/prem_kumar_rajbhar.pdf" download
+                  >Download Resume</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="footerBottom">
+          <div class="leftTxt">
+            <ul>
+              <li>
+                <p>&copy; 2026 Prem Kumar Rajbhar. All rights reserved</p>
+              </li>
+              <li>
+                <a href="mailto:premkumarrajbhar22@gmail.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail w-6 h-6"
+                    aria-hidden="true"
+                  >
+                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  </svg>
+                  premkumarrajbhar22@gmail.com
+                </a>
+              </li>
+
+              <li>
+                <a href="tel:+919310472323">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-phone"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                    ></path>
+                  </svg>
+                  +91 9310472323
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rightTxt d-none d-md-block">
+            <ul>
+              <li>Code &bull; Build &bull; Innovate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../scripts/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

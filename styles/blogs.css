@@ -36,6 +36,20 @@
     font-size: 14px;
     color: #737373;
     margin-bottom: 10px;
+    position: relative;
+  line-height: 1.5;
+  max-height: calc(1.3em * 2.5);
+  overflow: hidden;
+}
+
+.blogCard .blogDes::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 1.5em;
+  background: linear-gradient(to right, transparent, #fff 65%);
 }
 
 .readBtn {
@@ -76,6 +90,11 @@
 .blogCard:hover .blogImgBox img {
     transform: scale(1.02);
 }
+
+.blogDate {
+  display: none;
+}
+
 
 @media (max-width: 768px) {
     .heroSection h1 {
